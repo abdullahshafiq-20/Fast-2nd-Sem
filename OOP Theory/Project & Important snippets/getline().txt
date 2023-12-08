@@ -1,0 +1,17 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	ifstream i("D:\\myfile.txt");
+	string lines;
+
+	getline(i, lines);
+	cout << lines << endl;
+
+	getline(i,lines);
+	cout << lines << endl;
+}

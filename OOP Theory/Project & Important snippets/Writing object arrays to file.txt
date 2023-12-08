@@ -1,0 +1,43 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+// We will read/write objects of this class
+class Employee
+{
+	int empID;
+public:
+	Employee() { }
+	Employee(int empID) { this->empID = empID; }
+	void display() { cout << "Employee ID: " << empID << endl; }
+};
+
+// Our main function
+int main()
+{
+	// You need to change this path to where you stored your own file
+	string path = "D:\\OOP Spring 2022\\Files\\myfile.dat";
+
+	//We will create an array of 5 objects
+	Employee arr[] = {Employee(10), Employee(20), Employee(30)};
+
+	// Creating ofstream object to write the Employee obj array to file
+	ofstream os(path);
+	// Writing ALL of the objects to file in one go
+	os.write((char*) arr, sizeof(arr));
+	os.close();
+
+	// This array will store all objects that we read from our file
+	Employee resultArr[3];
+	// Creating ifstream object to read the Employee obj array from file
+	ifstream is(path);
+	// Reading ALL objects from file and saving it to our new array
+	is.read((char*) resultArr, sizeof(resultArr));
+	is.close();
+
+	// Use the objects read as you like
+	for(int i = 0; i < 3; i++)
+		resultArr[i].display();
+}
+

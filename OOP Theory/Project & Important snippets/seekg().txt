@@ -1,0 +1,33 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	ifstream is("D:\\myfile.txt");
+	char * txt = new char[20];
+
+	is.seekg(4, ios::beg);
+	is.read(txt, 5);
+
+	for(int i = 0; i < 5; i++)
+		cout << txt[i];
+}#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	ifstream is("D:\\myfile.txt");
+	char * txt = new char[20];
+
+	is.seekg(4, ios::beg);
+	is.read(txt, 5);
+
+	for(int i = 0; i < 5; i++)
+		cout << txt[i];
+}

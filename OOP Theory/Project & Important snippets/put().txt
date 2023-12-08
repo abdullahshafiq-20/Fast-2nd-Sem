@@ -1,0 +1,17 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+
+int main()
+{
+	ofstream o("D:\\myfile.txt");
+	char c = 'h';
+
+	o.put(c);
+	o.put('e');
+	o.put(2);
+	o.put(2.3f);
+}

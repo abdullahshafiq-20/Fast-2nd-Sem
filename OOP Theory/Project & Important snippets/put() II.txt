@@ -1,0 +1,22 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+
+int main()
+{
+	ofstream o("D:\\myfile.txt");
+	char c = 0;
+
+	while(c != 'x')
+	{
+		cin >> c;
+
+		if(c != 'x')
+			o.put(c);
+	}
+
+	o.close();
+}

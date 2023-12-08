@@ -1,0 +1,89 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Vector
+{
+	int x, y;
+	public:
+	Vector()
+	{
+		x = 0;
+		y = 0;
+	}
+
+	Vector(int x, int y)
+	{
+		this->x = x;
+		this->y = y;
+	}
+
+	void display()
+	{
+		cout << "x: " << x << endl << "y: " << y << endl;
+	}
+
+	// binary addition (overloads for subtraction, multiplication & division would be similar)
+	Vector operator+ (const Vector& o)
+	{
+		Vector temp;
+		temp.x = x + o.x;
+		temp.y = y + o.y;
+		return temp;
+	}
+
+	// unary pre increment (unary pre decrement would be similar)
+	void operator++()
+	{
+		++x;
+		++y;
+	}
+
+	// unary post increment (unary post increment would be similar)
+	void operator++(int)
+	{
+		x++;
+		y++;
+	}
+
+	// comparison of two vectors
+	bool operator== (const Vector& o)
+	{
+		if(x == o.x && y == o.y)
+			return true;
+		else
+			return false;
+	}
+
+	// friend function declarations so that these global functions may access this class' private members
+	friend Vector operator+(int, const Vector&);
+	friend void operator-(Vector& o);
+};
+
+// global binary addition, for expressions like OB2 = 5 + OB1 (global binary subtraction would be similar)
+Vector operator+(int val, const Vector& o)
+{
+	Vector temp;
+	temp.x = val + o.x;
+	temp.y = val + o.y;
+	return temp;
+}
+
+//global negation operator overload
+void operator-(Vector& o)
+{
+	o.x = -(o.x);
+	o.y = -(o.y);
+}
+
+int main()
+{
+	Vector v1(2, 4);
+	Vector v2(1, 5);
+	Vector v3;
+
+
+	
+	v1.display();
+}
